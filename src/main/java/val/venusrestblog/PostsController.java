@@ -14,6 +14,7 @@ public class PostsController {
     private List<Post> posts = new ArrayList<>();
     private long nextId = 1;
 
+
     private Post findPostById(long id) {
         for (Post post : posts) {
             if (post.getId() == id) {
