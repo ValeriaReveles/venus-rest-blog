@@ -9,7 +9,9 @@ export default function PostIndex(props) {
             <h3>Lists of Posts:</h3>
             <div>
                 ${props.posts.map(post =>
-                    `<h3 id="post-added">${post.title}</h3><button id="editPost" name="editPost">Edit Post</button><button id="deletePost" name="deletePost">Delete Post</button> `).join('')}   
+                    `<h3>${post.title}</h3>
+                    <button class="editPost" name="editPost">Edit Post</button>
+                    <button class="deletePost" name="deletePost">Delete Post</button> `).join('')}   
             </div>
             <br>
             <br>
@@ -35,24 +37,33 @@ export default function PostIndex(props) {
 //need to import to router.js when you use an export function.
 export function postSetup() {
     addPostHandler();
+    getPostId();
     // editPost();
-    deletePost();
+    // deletePost();
 }
 
-function deletePost() {
-    const deleteButton = document.querySelector("#deletePost");
-    deleteButton.addEventListener("click", function (event){
-    const element = document.querySelector('#post-added');
-    const requestOptions = {
-        method: 'DELETE',
-        headers: {"Content-Type": "application/json"}
-    };
-    fetch('http://localhost:8080/api/posts', )
-        .then(() => element.innerHTML = 'Delete successful');
-    })
+// function deletePost() {
+//     const deleteButton = document.querySelectorAll(".deletePost");
+//     deleteButton.addEventListener("click", function (event){
+//     const requestOptions = {
+//         method: 'DELETE',
+//         headers: {"Content-Type": "application/json"}
+//     };
+//     fetch('http://localhost:8080/api/posts', )
+//         .then(() => element.innerHTML = 'Delete successful');
+//     })
+// }
+
+
+
+function  getPostId() {
+    let request = {
+        method: "GET",
+        headers: {"Content-Type": "application/json"},
+    }
+    fetch("http://localhost:8080/api/posts", request)
+        .then(response => response.json()).then(data => console.log(data));
 }
-
-
 
 
 function addPostHandler() {
@@ -62,6 +73,7 @@ function addPostHandler() {
         const contentField = document.querySelector("#content");
 
         let newPost = {
+            id: null,
             title: titleField.value,
             content: contentField.value
         }
@@ -81,6 +93,23 @@ function addPostHandler() {
 
     });
 
-
-    // console.log("Doing post setup");
+    // function deletePostHandler() {
+    //     const deleteButton = document.querySelectorAll(".deletePost");
+    //     for (const deleteButtonKey in deleteButton) {
+    //     deleteButtonKey.addEventListener("click", function (event) {
+    //         let deletePost = {
+    //             title: ,
+    //             content:
+    //         }
+    //
+    //         let request = {
+    //             method: "DELETE",
+    //             headers: {"Content-Type": "application/json"}
+    //         }
+    //         fetch("http://localhost:8080/api/posts/", request)
+    //             .then(response => {
+    //                 console.log(response.status);
+    //                 CreateView("/posts");
+    //             })
+    //     })};
 }

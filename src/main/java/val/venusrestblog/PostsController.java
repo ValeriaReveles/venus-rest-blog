@@ -27,11 +27,8 @@ public class PostsController {
 //   @GetMapping
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Post> fetchPosts() {
-
         return posts;
     }
-
-
     @GetMapping("/{id}")
     //Do not forget @PathVariable when fetching:
     public Post fetchPostById(@PathVariable long id) {
@@ -66,7 +63,6 @@ public class PostsController {
         //what to do if we don't find it:
         throw new RuntimeException("I am not sure what you are asking for");
     }
-
     @PutMapping("/{id}")
     public void updatePost(@RequestBody Post updatedPost, @PathVariable long id) {
         //find ID of post to update in list:
