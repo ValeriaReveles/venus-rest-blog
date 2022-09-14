@@ -2,22 +2,22 @@ package val.venusrestblog.data;
 
 import lombok.*;
 
-import javax.management.relation.Role;
 import java.time.LocalDate;
+import java.util.Collection;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
 public class User {
-    private Long id;
-    private String username;
+    private long id;
+    private String userName;
     private String email;
     private String password;
     private LocalDate createdAt;
-    private Role role;
+    private UserRole role;
 
+    private Collection<Post> posts;
 
 }

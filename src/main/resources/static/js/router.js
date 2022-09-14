@@ -7,6 +7,7 @@ import Login from "./views/Login.js";
 import LoginEvent from "./auth.js";
 import Register from "./views/Register.js"
 import {RegisterEvent} from "./views/Register.js";
+import prepareUserHTML, {prepareUserJS} from "./views/User.js";
 // import {postEventDelete} from "./views/PostIndex";
 
 /**
