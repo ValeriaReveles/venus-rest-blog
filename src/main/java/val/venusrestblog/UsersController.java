@@ -21,13 +21,13 @@ public class UsersController {
 
     @PostConstruct
     public void init() {
-        User me = new User(1, "docrob", "docrob@docrob.com", "12345", LocalDate.now(), UserRole.ADMIN, new ArrayList<>());
+        User me = new User(1, "val", "val@valeria.com", "12345", LocalDate.now(), UserRole.ADMIN, new ArrayList<>());
         users.add(me);
 
-        Post myPost = new Post(100L, "doc post 1", "post 1 from doc", null, null);
+        Post myPost = new Post(100L, "val post 1", "post 1 from doc", null, null);
         me.getPosts().add(myPost);
 
-        myPost = new Post(101L, "doc post 2", "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ", null, null);
+        myPost = new Post(101L, "val post 2", "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ", null, null);
         me.getPosts().add(myPost);
     }
 
@@ -154,7 +154,7 @@ public class UsersController {
 
         // compare old password with saved pw
         if(!user.getPassword().equals(oldPassword)) {
-            throw new RuntimeException("amscray");
+            throw new RuntimeException("I am confusion.");
         }
 
         // validate new password
