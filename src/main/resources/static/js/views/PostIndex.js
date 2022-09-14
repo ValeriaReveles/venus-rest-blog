@@ -2,7 +2,6 @@ import CreateView from "../createView.js";
 
 let posts;
 
-// Doc's code:
 export default function PostIndex(props) {
     const postsHTML = generatePostsHTML(props.posts);
     // save this for loading edits later

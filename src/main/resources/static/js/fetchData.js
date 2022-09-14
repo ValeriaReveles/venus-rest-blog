@@ -12,6 +12,8 @@ export default function fetchData(state, request) {
 
     console.log("got to fetch data");
     console.log(request);
+
+    //Where is pieceOfState coming from?
     for (let pieceOfState of Object.keys(state)) {
         console.log(baseUri + state[pieceOfState]);
         promises.push(

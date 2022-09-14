@@ -1,7 +1,6 @@
 import CreateView from "../createView.js"
 
 let me;
-
 export default function prepareUserHTML(props) {
     me = props.me;
 

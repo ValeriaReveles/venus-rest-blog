@@ -7,7 +7,6 @@ export default function Login(props) {
 </head>
 <body>
 <h1>Log In</h1>
-
 <form id="login-form">
     <label for="username">Username</label>
     <input id="username" name="username" type="text"/>
@@ -19,5 +18,6 @@ export default function Login(props) {
 </html>`;
 
 }
+
 
 
