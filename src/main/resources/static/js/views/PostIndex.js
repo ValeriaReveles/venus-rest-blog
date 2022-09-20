@@ -1,4 +1,5 @@
 import CreateView from "../createView.js";
+import {getHeaders} from "../auth.js";
 
 let posts;
 
@@ -150,7 +151,7 @@ function setupDeleteHandlers() {
 function deletePost(postId) {
     const request = {
         method: "DELETE",
-        headers: {"Content-Type": "application/json"},
+        headers: getHeaders(),
     }
     const url = POST_API_BASE_URL + `/${postId}`;
     fetch(url, request)
@@ -192,7 +193,7 @@ function savePost(postId) {
     // make the request
     const request = {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: getHeaders(),
         body: JSON.stringify(post)
     }
     let url = POST_API_BASE_URL;
@@ -288,38 +289,7 @@ function savePost(postId) {
 // //         .then(() => element.innerHTML = 'Delete successful');
 // //     })
 // // }
-//
-// //another working deleteFunction:
-// // function deletePostHandler() {
-// //     const deleteButton = document.querySelectorAll(".deletePost");
-// //     for (const deleteButtonKey in deleteButton) {
-// //     deleteButtonKey.addEventListener("click", function (event) {
-// //         let deletePost = {
-// //             title: ,
-// //             content:
-// //         }
-// //
-// //         let request = {
-// //             method: "DELETE",
-// //             headers: {"Content-Type": "application/json"}
-// //         }
-// //         fetch("http://localhost:8080/api/posts/", request)
-// //             .then(response => {
-// //                 console.log(response.status);
-// //                 CreateView("/posts");
-// //             })
-// //     })};
-//
-// function  getPostId() {
-//     let request = {
-//         method: "GET",
-//         headers: {"Content-Type": "application/json"},
-//     }
-//     fetch("http://localhost:8080/api/posts", request)
-//         .then(response => response.json()).then(data => console.log(data));
-// }
-//
-//
+
 // function addPostHandler() {
 //     const addButton = document.querySelector("#addPost");
 //     addButton.addEventListener("click", function (event) {

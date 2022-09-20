@@ -3,6 +3,7 @@ package val.venusrestblog.controllers;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import val.venusrestblog.data.Category;
@@ -43,11 +44,14 @@ public class PostsController {
     }
 
     @PostMapping("")
-    public void createPost(@RequestBody Post newPost) {
-        //new code added to code by DOC:
-//        use your user id by default:
-        User author = usersRepository.findById(1L).get();
+    public void createPost(@RequestBody Post newPost, OAuth2Authentication auth) { //auth not same as author, stands for authentication.
+        //userName of individual who is currently logged in:
+        String userName = auth.getName();
+        //how can you look up user in database by username? Method in user repo to do that.
+        User author = usersRepository.findByUserName(userName);
         newPost.setAuthor(author);
+
+
         newPost.setCategories(new ArrayList<>());
 
         // use first 2 categories for the post by default

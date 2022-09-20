@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import val.venusrestblog.data.User;
@@ -51,8 +52,12 @@ public class UsersController {
     }
 
     @GetMapping("/me")
-    private Optional<User> fetchMe() {
-        return usersRepository.findById(1L);
+    private Optional<User> fetchMe(OAuth2Authentication auth) {
+        //userName of individual who is currently logged in:
+        String userName = auth.getName();
+        //how can you look up user in database by username? Method in user repo to do that.
+        User user = usersRepository.findByUserName(userName);
+        return Optional.of(user);
     }
 
 //    @GetMapping("/username/{userName}")
