@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class VenusRestBlogApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(VenusRestBlogApplication.class, args);
     }
 

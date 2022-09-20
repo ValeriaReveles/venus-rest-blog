@@ -1,4 +1,4 @@
-package val.venusrestblog;
+package val.venusrestblog.controllers;
 
 public class FakeDogFactGateway {
     public static String fetchDogFactById(long id){

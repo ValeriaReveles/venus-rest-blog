@@ -1,5 +1,5 @@
 
-package val.venusrestblog;
+package val.venusrestblog.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
